@@ -15,10 +15,10 @@ public class ControladorListarAula {
 		this.controladorPrincipal = controlador;
 	}
 	
+	
 	@FXML private Button BTSalir;
 	@FXML
 	private void salir(ActionEvent evento) {
 		((Stage) BTSalir.getParent().getScene().getWindow()).close();
 	}
-
 }

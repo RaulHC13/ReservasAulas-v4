@@ -21,7 +21,6 @@ import javafx.stage.Stage;
 public class ControladorPrincipal {
 
 	
-	
 	@FXML private Button BTSalirPrincipal,BTInsertarAula,BTEliminarAula,BTListarAula,BTConsultarDisponibilidad;
 	@FXML private Button BTInsertarProfesor,BTEliminarProfesor,BTListarProfesor; 
 	@FXML private Button BTRealizarReserva,BTAnularReserva,BTListarReserva,BTListarReservaAula,BTListarReservaProfesor;
@@ -64,7 +63,7 @@ public class ControladorPrincipal {
 	}
 	
 	@FXML
-	public void abrirListarAula() throws IOException {
+	public void abrirListarAula() throws IOException {			
 		crearVentanaListarAula();
 		listarAulaStage.showAndWait();
 	}
@@ -124,15 +123,13 @@ public class ControladorPrincipal {
 		
 	}
 	
-	
 	@FXML
-	private void salir(ActionEvent evento) {
-		Alert alerta = new Alert(AlertType.INFORMATION);
-		alerta.setTitle("Saliendo del programa.");
-		alerta.setContentText("Hasta otra");
-		alerta.setHeaderText(null);
-		alerta.show();
-		((Stage) BTSalirPrincipal.getParent().getScene().getWindow()).close();
+	private void salir(ActionEvent event) {
+
+		if (Dialogos.mostrarDialogoConfirmacion("Salir de la Aplicación", "¿Realmente quieres salir?", null)) {
+			controladorPrincipal.terminar();
+			System.exit(0);
+		}
 	}
 	
 	@FXML
@@ -154,7 +151,7 @@ public class ControladorPrincipal {
 			
 			Scene scene = new Scene(raiz,500,400);
 			insertarAulaStage.setTitle("Insertar aulas");
-			insertarAulaStage.initModality(Modality.WINDOW_MODAL);
+			insertarAulaStage.initModality(Modality.APPLICATION_MODAL);
 			insertarAulaStage.setScene(scene);
 		} else {
 		}
@@ -170,7 +167,7 @@ public class ControladorPrincipal {
 			
 			Scene scene2 = new Scene(raiz2,500,400);
 			eliminarAulaStage.setTitle("Eliminar aulas");
-			eliminarAulaStage.initModality(Modality.WINDOW_MODAL);
+			eliminarAulaStage.initModality(Modality.APPLICATION_MODAL);
 			eliminarAulaStage.setScene(scene2);
 		}
 	}
@@ -178,15 +175,15 @@ public class ControladorPrincipal {
 	private void crearVentanaListarAula() throws IOException {
 		if (listarAulaStage == null) {
 			listarAulaStage = new Stage();
-			FXMLLoader loaderListarAula = new FXMLLoader(LocalizadorRecursos.class.getResource("vistas/ListarAula.fxml"));
-			AnchorPane raizListar = loaderListarAula.load();
-			controllerListarAula = loaderListarAula.getController();
+			FXMLLoader loader = new FXMLLoader(LocalizadorRecursos.class.getResource("vistas/ListarAula.fxml"));
+			AnchorPane raiz = loader.load();
+			controllerListarAula = loader.getController();
 			controllerListarAula.setControladorPrincipal(controladorPrincipal);
 			
-			Scene sceneListarAula = new Scene(raizListar,500,400);
+			Scene scene = new Scene(raiz,500,400);
 			listarAulaStage.setTitle("Listar aulas");
-			listarAulaStage.initModality(Modality.WINDOW_MODAL);
-			listarAulaStage.setScene(sceneListarAula);
+			listarAulaStage.initModality(Modality.APPLICATION_MODAL);
+			listarAulaStage.setScene(scene);
 		}
 	}
 	
@@ -200,7 +197,7 @@ public class ControladorPrincipal {
 			
 			Scene scene = new Scene(raiz,500,400);
 			consultarDisponibilidadStage.setTitle("Consultar disponibilidad");
-			consultarDisponibilidadStage.initModality(Modality.WINDOW_MODAL);
+			consultarDisponibilidadStage.initModality(Modality.APPLICATION_MODAL);
 			consultarDisponibilidadStage.setScene(scene);
 		}
 	}
@@ -215,7 +212,7 @@ public class ControladorPrincipal {
 			
 			Scene scene = new Scene(raiz,500,400);
 			insertarProfesorStage.setTitle("Insertar profesor");
-			insertarProfesorStage.initModality(Modality.WINDOW_MODAL);
+			insertarProfesorStage.initModality(Modality.APPLICATION_MODAL);
 			insertarProfesorStage.setScene(scene);
 		}
 	}
@@ -230,7 +227,7 @@ public class ControladorPrincipal {
 			
 			Scene scene = new Scene(raiz,500,400);
 			eliminarProfesorStage.setTitle("Eliminar profesor");
-			eliminarProfesorStage.initModality(Modality.WINDOW_MODAL);
+			eliminarProfesorStage.initModality(Modality.APPLICATION_MODAL);
 			eliminarProfesorStage.setScene(scene);
 		}
 	}
@@ -245,7 +242,7 @@ public class ControladorPrincipal {
 				
 				Scene scene = new Scene(raiz,500,400);
 				listarProfesorStage.setTitle("Listar profesor");
-				listarProfesorStage.initModality(Modality.WINDOW_MODAL);
+				listarProfesorStage.initModality(Modality.APPLICATION_MODAL);
 				listarProfesorStage.setScene(scene);
 			} else {
 			}
@@ -260,7 +257,7 @@ public class ControladorPrincipal {
 				
 				Scene scene = new Scene(raiz,500,400);
 				realizarReservaStage.setTitle("Realizar reserva");
-				realizarReservaStage.initModality(Modality.WINDOW_MODAL);
+				realizarReservaStage.initModality(Modality.APPLICATION_MODAL);
 				realizarReservaStage.setScene(scene);
 			}
 	}
@@ -274,7 +271,7 @@ public class ControladorPrincipal {
 				
 				Scene scene = new Scene(raiz,500,400);
 				anularReservaStage.setTitle("Anular reserva");
-				anularReservaStage.initModality(Modality.WINDOW_MODAL);
+				anularReservaStage.initModality(Modality.APPLICATION_MODAL);
 				anularReservaStage.setScene(scene);
 			}
 	}
@@ -288,7 +285,7 @@ public class ControladorPrincipal {
 				
 				Scene scene = new Scene(raiz,500,400);
 				listarReservaStage.setTitle("Listar reservas");
-				listarReservaStage.initModality(Modality.WINDOW_MODAL);
+				listarReservaStage.initModality(Modality.APPLICATION_MODAL);
 				listarReservaStage.setScene(scene);
 			}
 	}
@@ -302,7 +299,7 @@ public class ControladorPrincipal {
 				
 				Scene scene = new Scene(raiz,500,400);
 				listarReservaAulaStage.setTitle("Listar reservas por aula");
-				listarReservaAulaStage.initModality(Modality.WINDOW_MODAL);
+				listarReservaAulaStage.initModality(Modality.APPLICATION_MODAL);
 				listarReservaAulaStage.setScene(scene);
 			}
 	}
@@ -316,7 +313,7 @@ public class ControladorPrincipal {
 				
 				Scene scene = new Scene(raiz,500,400);
 				listarReservaProfesorStage.setTitle("Listar reservas por profesor");
-				listarReservaProfesorStage.initModality(Modality.WINDOW_MODAL);
+				listarReservaProfesorStage.initModality(Modality.APPLICATION_MODAL);
 				listarReservaProfesorStage.setScene(scene);
 			}
 	}

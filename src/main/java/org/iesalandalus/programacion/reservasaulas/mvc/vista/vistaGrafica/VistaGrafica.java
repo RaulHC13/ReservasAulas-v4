@@ -30,11 +30,23 @@ public class VistaGrafica extends Application implements IVista{
 			escena.getStylesheets().add(LocalizadorRecursos.class.getResource("estilos/estilosPrincipal.css").toExternalForm());
 			escenarioPrincipal.setScene(escena);
 			escenarioPrincipal.setTitle("Ventana principal");
+			escenarioPrincipal.setOnCloseRequest(e -> confirmarSalida(escenarioPrincipal, e));
 			escenarioPrincipal.show();
 			
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
+	}
+	
+	private void confirmarSalida(Stage escenarioPrincipal, WindowEvent e) {
+		if (Dialogos.mostrarDialogoConfirmacion("Salir", "¿Estás seguro de que quieres salir de la aplicación?", escenarioPrincipal)) {
+			controladorPrograma.terminar();
+			escenarioPrincipal.close();
+		}
+		
+		else {
+			e.consume();	
+	}
 	}
 	
 	@Override

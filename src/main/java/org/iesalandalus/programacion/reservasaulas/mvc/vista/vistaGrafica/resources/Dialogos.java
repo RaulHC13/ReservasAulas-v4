@@ -22,7 +22,6 @@ public class Dialogos {
 	
 	public static void mostrarDialogoError(String titulo, String contenido, Stage propietario) {
 		Alert dialogo = new Alert(AlertType.ERROR);
-		dialogo.getDialogPane().getStylesheets().add(Dialogos.class.getResource(CSS).toExternalForm());
 		((Button) dialogo.getDialogPane().lookupButton(ButtonType.OK)).setId(ID_BT_ACEPTAR);
 		dialogo.setTitle(titulo);
 		dialogo.setHeaderText(null);
@@ -44,7 +43,6 @@ public class Dialogos {
 	
 	public static void mostrarDialogoInformacion(String titulo, String contenido, Stage propietario) {
 		Alert dialogo = new Alert(AlertType.INFORMATION);
-		dialogo.getDialogPane().getStylesheets().add(Dialogos.class.getResource(CSS).toExternalForm());
 		((Button) dialogo.getDialogPane().lookupButton(ButtonType.OK)).setId(ID_BT_ACEPTAR);
 		dialogo.setTitle(titulo);
 		dialogo.setHeaderText(null);
@@ -64,7 +62,6 @@ public class Dialogos {
 	
 	public static void mostrarDialogoAdvertencia(String titulo, String contenido, Stage propietario) {
 		Alert dialogo = new Alert(AlertType.WARNING);
-		dialogo.getDialogPane().getStylesheets().add(Dialogos.class.getResource(CSS).toExternalForm());
 		((Button) dialogo.getDialogPane().lookupButton(ButtonType.OK)).setId(ID_BT_ACEPTAR);
 		dialogo.setTitle(titulo);
 		dialogo.setHeaderText(null);
@@ -84,7 +81,6 @@ public class Dialogos {
 	
 	public static String mostrarDialogoTexto(String titulo, String contenido) {
 		TextInputDialog dialogo = new TextInputDialog();
-		dialogo.getDialogPane().getStylesheets().add(Dialogos.class.getResource(CSS).toExternalForm());
 		((Button) dialogo.getDialogPane().lookupButton(ButtonType.OK)).setId(ID_BT_ACEPTAR);
 		((Button) dialogo.getDialogPane().lookupButton(ButtonType.CANCEL)).setId(ID_BT_CANCELAR);
 		dialogo.setTitle(titulo);
@@ -97,7 +93,6 @@ public class Dialogos {
 	
 	public static boolean mostrarDialogoConfirmacion(String titulo, String contenido, Stage propietario) {
 		Alert dialogo = new Alert(AlertType.CONFIRMATION);
-		dialogo.getDialogPane().getStylesheets().add(Dialogos.class.getResource(CSS).toExternalForm());
 		((Button) dialogo.getDialogPane().lookupButton(ButtonType.OK)).setId(ID_BT_ACEPTAR);
 		((Button) dialogo.getDialogPane().lookupButton(ButtonType.CANCEL)).setId(ID_BT_CANCELAR);
 		dialogo.setTitle(titulo);
@@ -107,11 +102,7 @@ public class Dialogos {
 			dialogo.initModality(Modality.APPLICATION_MODAL);
 			dialogo.initOwner(propietario);
 		}
-
 		Optional<ButtonType> respuesta = dialogo.showAndWait();
 		return (respuesta.isPresent() && respuesta.get() == ButtonType.OK);
 	}
-	
 }
-
-

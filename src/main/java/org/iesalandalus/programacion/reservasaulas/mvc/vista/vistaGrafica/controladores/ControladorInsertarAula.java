@@ -28,6 +28,7 @@ public class ControladorInsertarAula {
 	private void salir(ActionEvent evento) {
 		((Stage) BTSalir.getParent().getScene().getWindow()).close();
 	}
+	
 		
 	private Aula getAula() {
 		
