@@ -43,7 +43,7 @@
           </Menu>
         </menus>
       </MenuBar>
-      <Label id="lbAulas" layoutX="145.0" layoutY="88.0" text="Menú Aulas">
+      <Label id="lbAulas" layoutX="158.0" layoutY="88.0" text="Menú Aulas">
          <font>
             <Font name="Cambria Bold" size="20.0" />
          </font>
@@ -117,7 +117,7 @@
             </AnchorPane>
          </children>
       </StackPane>
-      <Label id="lbProfesores" layoutX="516.0" layoutY="88.0" text="Menú Profesores">
+      <Label id="lbProfesores" layoutX="512.0" layoutY="88.0" text="Menú Profesores">
          <font>
             <Font name="Cambria Bold" size="20.0" />
          </font>

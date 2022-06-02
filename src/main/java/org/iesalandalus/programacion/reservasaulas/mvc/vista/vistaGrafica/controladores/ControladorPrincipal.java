@@ -126,7 +126,7 @@ public class ControladorPrincipal {
 	@FXML
 	private void salir(ActionEvent event) {
 
-		if (Dialogos.mostrarDialogoConfirmacion("Salir de la Aplicación", "¿Realmente quieres salir?", null)) {
+		if (Dialogos.mostrarDialogoConfirmacion("Salir del programa", "¿Seguro que quieres salir?", null)) {
 			controladorPrincipal.terminar();
 			System.exit(0);
 		}
@@ -148,13 +148,16 @@ public class ControladorPrincipal {
 			AnchorPane raiz = loader.load();
 			controllerInsertarAula = loader.getController();
 			controllerInsertarAula.setControladorPrincipal(controladorPrincipal);
+			controllerInsertarAula.inicializar();
 			
 			Scene scene = new Scene(raiz,500,400);
 			insertarAulaStage.setTitle("Insertar aulas");
 			insertarAulaStage.initModality(Modality.APPLICATION_MODAL);
 			insertarAulaStage.setScene(scene);
 		} else {
-		}
+			controllerInsertarAula.inicializar();
+		} /*Se inicializa si el escenario no es nulo para que al volver a abrir tras cerrar 
+			la ventana no aparezca lo que se habia escrito antes*/
 	}
 	
 	private void crearVentanaEliminarAula() throws IOException {
@@ -164,11 +167,15 @@ public class ControladorPrincipal {
 			AnchorPane raiz2 = loader2.load();
 			controllerEliminarAula = loader2.getController();
 			controllerEliminarAula.setControladorPrincipal(controladorPrincipal);
+			controllerEliminarAula.inicializar();
 			
 			Scene scene2 = new Scene(raiz2,500,400);
 			eliminarAulaStage.setTitle("Eliminar aulas");
 			eliminarAulaStage.initModality(Modality.APPLICATION_MODAL);
 			eliminarAulaStage.setScene(scene2);
+		}
+		else {
+			controllerEliminarAula.inicializar();
 		}
 	}
 	

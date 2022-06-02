@@ -29,26 +29,36 @@ public class ControladorEliminarAula {
 		((Stage) BTSalir.getParent().getScene().getWindow()).close();
 	}
 	
-	@FXML
-	private void eliminarAula() {
-		
-		String nombre = getNombre();
-		Aula aulaBorrar = Aula.getAulaFicticia(nombre);
-		try {
-			controladorPrincipal.borrarAula(aulaBorrar);
-			Dialogos.mostrarDialogoInformacion(nombre, "Se ha eliminado el aula.");
-		} catch (OperationNotSupportedException e) {
-			Dialogos.mostrarDialogoError(nombre, "Se ha producido un error.");
-			e.printStackTrace();
-		}
-	}
+	public void inicializar() {
+		TFNombre.setText("");
+	}	
+	
 	private String getNombre() {
-		String nombre = null;
+		
+		String nombre = "";
+		
 		if (TFNombre.getText() == null || TFNombre.getText().isBlank()) {
-			Dialogos.mostrarDialogoError("ERROR", "Error: No se ha introducido ningún nombre.");
+			Dialogos.mostrarDialogoAdvertencia("AVISO", "No se ha introducido ningún nombre.");
 		} else {
 			 nombre = TFNombre.getText();			
 		}
 		return nombre;
+	}
+	
+	@FXML
+	private void eliminarAula() {
+		
+		String nombre = getNombre();
+		try {			
+			if (nombre.isEmpty()) {
+				Dialogos.mostrarDialogoError("ERROR", "No se ha podido eliminar el aula.");				
+			} else {				
+				Aula aulaBorrar = Aula.getAulaFicticia(nombre);
+				controladorPrincipal.borrarAula(aulaBorrar);
+				Dialogos.mostrarDialogoInformacion(nombre, "Se ha eliminado el aula.");
+			}
+		} catch (OperationNotSupportedException e) {
+			Dialogos.mostrarDialogoError("ERROR", "ERROR: El aula no existe.");	
+		}//Se maneja este error en el catch
 	}
 }

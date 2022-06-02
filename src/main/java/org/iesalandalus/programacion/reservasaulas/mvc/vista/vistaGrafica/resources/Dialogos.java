@@ -33,8 +33,7 @@ public class Dialogos {
 		dialogo.showAndWait();
 		if (propietario != null)
 			propietario.close();
-                
-                
+                          
 	}
 	
 	public static void mostrarDialogoError(String titulo, String contenido) {

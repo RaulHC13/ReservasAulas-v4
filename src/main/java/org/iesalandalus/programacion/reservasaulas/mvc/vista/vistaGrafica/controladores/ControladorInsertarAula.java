@@ -24,29 +24,43 @@ public class ControladorInsertarAula {
 	}
 	
 	@FXML private Button BTSalir;
+	
 	@FXML
 	private void salir(ActionEvent evento) {
 		((Stage) BTSalir.getParent().getScene().getWindow()).close();
 	}
 	
-		
+	public void inicializar() {
+		TFNombre.setText("");
+		TFPuestos.setText("0");
+		//Inicializa los puestos como 0 para prevenir excepciones.
+	}	
+	
 	private Aula getAula() {
-		
+		//Recoge los datos de los campos de texto.
 		Aula aula = null;
-		String nombre = null;
+		String nombre = "";
 		int puestos = 10;
 		
 		if (TFNombre.getText() == null || TFNombre.getText().isBlank()) {
-			Dialogos.mostrarDialogoError("ERROR", "Error: No se ha introducido ningún nombre.");
+			Dialogos.mostrarDialogoAdvertencia("AVISO", "No se ha introducido ningún nombre.");
+			
 		} else {
 			 nombre = TFNombre.getText();			
 		}
+		
 		if (Integer.parseInt(TFPuestos.getText()) > 50 || Integer.parseInt(TFPuestos.getText()) < 10) {
-			Dialogos.mostrarDialogoError("ERROR", "Error: El número de puestos no es válido");
+			Dialogos.mostrarDialogoAdvertencia("AVISO", "El número de puestos no es válido");
 		} else {
 			 puestos = Integer.parseInt(TFPuestos.getText());
 		}
-		aula = new Aula(nombre,puestos);
+		
+		if (!nombre.isBlank()) {
+			aula = new Aula(nombre,puestos);			
+		}
+		
+		/*Aunque el numero de puestos no sea válido se crea un nuevo aula con puestos 10 por defecto,
+		se comprueba TFPuestos al insertar y, si no es válido no se crea.*/
 		
 		return aula;
 	}
@@ -55,11 +69,19 @@ public class ControladorInsertarAula {
 	private void insertarAula() {
 		Aula aula = null;
 		try {
+			
 			aula = getAula();
-			controladorPrincipal.insertarAula(aula);
-			Dialogos.mostrarDialogoInformacion(null, "Se ha insertade el aula.");
+			if (Integer.parseInt(TFPuestos.getText()) > 50 || Integer.parseInt(TFPuestos.getText()) < 10 || aula == null) {
+				Dialogos.mostrarDialogoError("ERROR", "ERROR: No se ha podido insertar el aula.");
+				//Hace la ultima comprobación antes de insertar.
+				
+			} else {
+				controladorPrincipal.insertarAula(aula);
+				Dialogos.mostrarDialogoInformacion(null, "Se ha insertado el aula.");	
+			}			
+			
 		} catch (OperationNotSupportedException e) {
-			Dialogos.mostrarDialogoError("ERROR", "Error: No se ha podido insertar el aula.");
-		}
+			Dialogos.mostrarDialogoError("ERROR", "ERROR: El aula ya existe.");
+		}//El otro error que puede dar es en caso de que el aula ya exista, por lo que se maneja en el catch.
 	}
 }

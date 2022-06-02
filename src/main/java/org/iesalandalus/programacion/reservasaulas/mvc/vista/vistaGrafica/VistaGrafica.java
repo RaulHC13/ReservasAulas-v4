@@ -22,7 +22,6 @@ public class VistaGrafica extends Application implements IVista{
 		try {
 			FXMLLoader loader = new FXMLLoader(LocalizadorRecursos.class.getResource("vistas/Principal.fxml"));
 			AnchorPane raiz = loader.load();
-			
 			ControladorPrincipal controllerP = loader.getController();
 			controllerP.setControladorPrincipal(controladorPrograma);
 			
@@ -39,14 +38,15 @@ public class VistaGrafica extends Application implements IVista{
 	}
 	
 	private void confirmarSalida(Stage escenarioPrincipal, WindowEvent e) {
-		if (Dialogos.mostrarDialogoConfirmacion("Salir", "¿Estás seguro de que quieres salir de la aplicación?", escenarioPrincipal)) {
+		
+		if (Dialogos.mostrarDialogoConfirmacion("Salir del programa", "¿Seguro que quieres salir?", escenarioPrincipal)) {
 			controladorPrograma.terminar();
 			escenarioPrincipal.close();
 		}
 		
 		else {
 			e.consume();	
-	}
+		}
 	}
 	
 	@Override

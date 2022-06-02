@@ -25,7 +25,7 @@
       </Label>
       <TextField id="TFNombre" fx:id="TFNombre" layoutX="77.0" layoutY="160.0" />
       <TextField id="TFPuestos" fx:id="TFPuestos" layoutX="276.0" layoutY="160.0" />
-      <Button id="BTInsertarAula" fx:id="BTInsertar" layoutX="209.0" layoutY="238.0" mnemonicParsing="false" text="Insertar">
+      <Button id="BTInsertarAula" fx:id="BTInsertar" layoutX="209.0" layoutY="238.0" mnemonicParsing="false" onAction="#insertarAula" text="Insertar">
          <font>
             <Font name="Cambria Bold" size="16.0" />
          </font>
