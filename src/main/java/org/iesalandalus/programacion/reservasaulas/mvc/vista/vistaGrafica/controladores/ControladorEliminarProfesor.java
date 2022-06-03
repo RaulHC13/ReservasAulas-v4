@@ -14,6 +14,8 @@ import javafx.stage.Stage;
 
 public class ControladorEliminarProfesor {
 	
+	private static final String ER_CORREO = "[a-zñÑA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zñÑA-Z0-9](?:[a-zñÑA-Z0-9-]{0,61}[a-zñÑA-Z0-9])?(?:\\.[a-zñÑA-Z0-9](?:[a-zñÑA-Z0-9-]{0,61}[a-zñÑA-Z0-9])?)";
+
 	@FXML private TextField TFCorreo;
 	@FXML private Button BTEliminar;
 	
@@ -29,25 +31,36 @@ public class ControladorEliminarProfesor {
 		((Stage) BTSalir.getParent().getScene().getWindow()).close();
 	}
 	
-	@FXML
-	private void eliminarProfesor() {
-		String correo = getCorreo();
-		Profesor profesor = Profesor.getProfesorFicticio(correo);
-		
-		try {
-			controladorPrincipal.borrarProfesor(profesor);
-		} catch (OperationNotSupportedException e) {
-			e.printStackTrace();
-		}
+	public void inicializar() {
+		TFCorreo.setText("");
 	}
+	
 	private String getCorreo() {
-		String correo = null;
-		if (TFCorreo.getText() == null || TFCorreo.getText().isBlank()) {
-			Dialogos.mostrarDialogoError("ERROR", "Error: No se ha introducido ningún correo.");
+		String correo = "";
+		
+		if (TFCorreo.getText() == null || TFCorreo.getText().isBlank() || !TFCorreo.getText().matches(ER_CORREO)) {
+			Dialogos.mostrarDialogoAdvertencia("AVISO", "No se ha introducido ningún correo válido.");
 		} else {
 			 correo = TFCorreo.getText();			
 		}
 		return correo;
 	}
+	
+	@FXML
+	private void eliminarProfesor() {
+		String correo = getCorreo();
+		
+		try {
+			if (correo.isBlank()) {
+				Dialogos.mostrarDialogoError("ERROR", "No se ha podido eliminar el profesor.");	
+			} else {
+				Profesor profesor = Profesor.getProfesorFicticio(correo);
+				controladorPrincipal.borrarProfesor(profesor);
+				Dialogos.mostrarDialogoInformacion(null, "Se ha eliminado el profesor.");
+			}
 
+		} catch (OperationNotSupportedException e) {
+			Dialogos.mostrarDialogoError("ERROR", "ERROR: El profesor no existe.");	
+		}
+	}
 }

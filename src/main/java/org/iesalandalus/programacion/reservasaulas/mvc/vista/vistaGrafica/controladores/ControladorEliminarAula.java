@@ -55,7 +55,7 @@ public class ControladorEliminarAula {
 			} else {				
 				Aula aulaBorrar = Aula.getAulaFicticia(nombre);
 				controladorPrincipal.borrarAula(aulaBorrar);
-				Dialogos.mostrarDialogoInformacion(nombre, "Se ha eliminado el aula.");
+				Dialogos.mostrarDialogoInformacion(null, "Se ha eliminado el aula.");
 			}
 		} catch (OperationNotSupportedException e) {
 			Dialogos.mostrarDialogoError("ERROR", "ERROR: El aula no existe.");	

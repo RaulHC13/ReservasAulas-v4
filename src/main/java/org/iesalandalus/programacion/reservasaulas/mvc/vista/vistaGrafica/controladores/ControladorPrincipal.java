@@ -216,12 +216,16 @@ public class ControladorPrincipal {
 			AnchorPane raiz = loader.load();
 			controllerInsertarProfesor = loader.getController();
 			controllerInsertarProfesor.setControladorPrincipal(controladorPrincipal);
+			controllerInsertarProfesor.inicializar();
 			
 			Scene scene = new Scene(raiz,500,400);
 			insertarProfesorStage.setTitle("Insertar profesor");
 			insertarProfesorStage.initModality(Modality.APPLICATION_MODAL);
 			insertarProfesorStage.setScene(scene);
+		} else {
+			controllerInsertarProfesor.inicializar();
 		}
+		
 	}
 	
 	private void crearVentanaEliminarProfesor() throws IOException {
@@ -231,11 +235,15 @@ public class ControladorPrincipal {
 			AnchorPane raiz = loader.load();
 			controllerEliminarProfesor = loader.getController();
 			controllerEliminarProfesor.setControladorPrincipal(controladorPrincipal);
+			controllerEliminarProfesor.inicializar();
 			
 			Scene scene = new Scene(raiz,500,400);
 			eliminarProfesorStage.setTitle("Eliminar profesor");
 			eliminarProfesorStage.initModality(Modality.APPLICATION_MODAL);
 			eliminarProfesorStage.setScene(scene);
+		}
+		else {
+			controllerEliminarProfesor.inicializar();
 		}
 	}
 		private void crearVentanaListarProfesor() throws IOException {

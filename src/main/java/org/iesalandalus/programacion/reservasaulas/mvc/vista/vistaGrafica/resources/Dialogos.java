@@ -13,7 +13,6 @@ import javafx.stage.Stage;
 public class Dialogos {
 	
 
-	private static final String CSS = "../vistas/iugpestanas.css";
 	private static final String ID_BT_ACEPTAR = "btAceptar";
 	private static final String ID_BT_CANCELAR = "btCancelar";
 	
