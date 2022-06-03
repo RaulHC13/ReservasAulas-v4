@@ -51,6 +51,9 @@ public class ControladorListarAula {
 		  
 		  Para la columna TCPuestos se empieza por "]" que es el final y se le resta 3 para que incluya 
 		  los 2 numeros de puestos, acaba en "]".
+		  
+		  Se puede no utilizar indexOf y directamente introducir la posicion en substring(), pero asi se limitaria
+		  la longitud que se puede mostrar.
 		  */
 		
 		TCNombre.setCellValueFactory(nombre -> new SimpleStringProperty
