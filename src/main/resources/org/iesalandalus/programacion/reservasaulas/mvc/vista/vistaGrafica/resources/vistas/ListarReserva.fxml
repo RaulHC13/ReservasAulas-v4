@@ -19,11 +19,15 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Button>
-      <TableView layoutX="26.0" layoutY="108.0" prefHeight="200.0" prefWidth="450.0">
+      <TableView fx:id="TVListarReservas" layoutX="26.0" layoutY="108.0" prefHeight="200.0" prefWidth="450.0">
         <columns>
-          <TableColumn editable="false" prefWidth="95.0" resizable="false" text="Aula" />
-          <TableColumn editable="false" prefWidth="152.0" resizable="false" text="Profesor" />
-            <TableColumn editable="false" prefWidth="202.0" resizable="false" text="Permanencia" />
+          <TableColumn fx:id="TCAula" editable="false" prefWidth="95.0" resizable="false" text="Aula" />
+          <TableColumn fx:id="TCProfesor" editable="false" prefWidth="152.0" resizable="false" text="Profesor" />
+            <TableColumn fx:id="TCPermanencia" editable="false" prefWidth="202.0" resizable="false" text="Permanencia">
+               <columns>
+                  <TableColumn fx:id="TCFecha" editable="false" prefWidth="118.0" resizable="false" text="Fecha" />
+                  <TableColumn fx:id="TCHora" editable="false" prefWidth="84.0" resizable="false" text="Hora" />
+               </columns></TableColumn>
         </columns>
       </TableView>
    </children>

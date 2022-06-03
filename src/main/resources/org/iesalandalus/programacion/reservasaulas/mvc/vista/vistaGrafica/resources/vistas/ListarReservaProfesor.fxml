@@ -10,7 +10,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.iesalandalus.programacion.reservasaulas.mvc.vista.vistaGrafica.controladores.ControladorListarReservaProfesor">
    <children>
-      <Label layoutX="95.0" layoutY="41.0" text="Listar reservas por profesor" underline="true">
+      <Label layoutX="95.0" layoutY="38.0" text="Listar reservas por profesor" underline="true">
          <font>
             <Font name="Cambria Bold" size="24.0" />
          </font>
