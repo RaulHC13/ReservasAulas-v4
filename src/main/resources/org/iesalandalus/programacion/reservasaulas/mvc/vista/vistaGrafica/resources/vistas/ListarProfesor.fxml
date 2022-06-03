@@ -21,9 +21,9 @@
       </Button>
       <TableView id="tvProfesores" fx:id="tvProfesores" layoutX="66.0" layoutY="100.0" prefHeight="200.0" prefWidth="368.0">
         <columns>
-          <TableColumn id="nombreColumn" fx:id="nombreColumn" prefWidth="96.0" text="Nombre" />
-          <TableColumn id="correoColumn" fx:id="correoColumn" prefWidth="146.0" text="Correo" />
-            <TableColumn id="telefonoColumn" fx:id="telefonoColumn" prefWidth="125.0" text="Telefono" />
+          <TableColumn id="nombreColumn" fx:id="nombreColumn" editable="false" prefWidth="96.0" resizable="false" text="Nombre" />
+          <TableColumn id="correoColumn" fx:id="correoColumn" editable="false" prefWidth="146.0" resizable="false" text="Correo" />
+            <TableColumn id="telefonoColumn" fx:id="telefonoColumn" editable="false" prefWidth="125.0" resizable="false" text="Telefono" />
         </columns>
       </TableView>
    </children>

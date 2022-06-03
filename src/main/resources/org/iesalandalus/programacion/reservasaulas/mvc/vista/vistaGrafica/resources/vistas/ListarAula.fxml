@@ -9,7 +9,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.iesalandalus.programacion.reservasaulas.mvc.vista.vistaGrafica.controladores.ControladorListarAula">
    <children>
-      <Label layoutX="178.0" layoutY="46.0" text="Listar aulas" underline="true">
+      <Label layoutX="180.0" layoutY="49.0" text="Listar aulas" underline="true">
          <font>
             <Font name="Cambria Bold" size="24.0" />
          </font>
@@ -19,10 +19,10 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Button>
-      <TableView fx:id="TVListaAulas" layoutX="118.0" layoutY="100.0" prefHeight="200.0" prefWidth="249.0">
+      <TableView fx:id="TVListaAulas" editable="true" layoutX="111.0" layoutY="100.0" prefHeight="200.0" prefWidth="267.0">
         <columns>
-          <TableColumn fx:id="TCNombre" prefWidth="127.0" text="Nombre" />
-          <TableColumn fx:id="TCPuestos" prefWidth="121.0" text="Puestos" />
+          <TableColumn fx:id="TCNombre" editable="false" prefWidth="146.0" resizable="false" text="Nombre" />
+          <TableColumn fx:id="TCPuestos" editable="false" prefWidth="120.0" resizable="false" text="Puestos" />
         </columns>
       </TableView>
    </children>

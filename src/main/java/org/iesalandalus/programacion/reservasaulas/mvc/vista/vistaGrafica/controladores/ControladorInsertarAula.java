@@ -48,12 +48,16 @@ public class ControladorInsertarAula {
 		} else {
 			 nombre = TFNombre.getText();			
 		}
+		try {
 		
 		if (Integer.parseInt(TFPuestos.getText()) > 50 || Integer.parseInt(TFPuestos.getText()) < 10) {
 			Dialogos.mostrarDialogoAdvertencia("AVISO", "El número de puestos no es válido");
 		} else {
 			 puestos = Integer.parseInt(TFPuestos.getText());
 		}
+		} catch(NumberFormatException e) {
+			Dialogos.mostrarDialogoAdvertencia("AVISO", "Se debe de insertar un número entero de puestos entre 10 y 50");
+		}//En caso de que se introduzca algo que no es un numero entero en TFPuestos
 		
 		if (!nombre.isBlank()) {
 			aula = new Aula(nombre,puestos);			
@@ -71,6 +75,8 @@ public class ControladorInsertarAula {
 		try {
 			
 			aula = getAula();
+			try {
+				
 			if (Integer.parseInt(TFPuestos.getText()) > 50 || Integer.parseInt(TFPuestos.getText()) < 10 || aula == null) {
 				Dialogos.mostrarDialogoError("ERROR", "ERROR: No se ha podido insertar el aula.");
 				//Hace la ultima comprobación antes de insertar.
@@ -78,7 +84,10 @@ public class ControladorInsertarAula {
 			} else {
 				controladorPrincipal.insertarAula(aula);
 				Dialogos.mostrarDialogoInformacion(null, "Se ha insertado el aula.");	
-			}			
+			}	
+			} catch(NumberFormatException e) {
+				Dialogos.mostrarDialogoError("ERROR", "ERROR: No se ha podido insertar el aula.");
+			}
 			
 		} catch (OperationNotSupportedException e) {
 			Dialogos.mostrarDialogoError("ERROR", "ERROR: El aula ya existe.");

@@ -21,9 +21,9 @@
       </Button>
       <TableView layoutX="26.0" layoutY="108.0" prefHeight="200.0" prefWidth="450.0">
         <columns>
-          <TableColumn prefWidth="95.0" text="Aula" />
-          <TableColumn prefWidth="152.0" text="Profesor" />
-            <TableColumn prefWidth="202.0" text="Permanencia" />
+          <TableColumn editable="false" prefWidth="95.0" resizable="false" text="Aula" />
+          <TableColumn editable="false" prefWidth="152.0" resizable="false" text="Profesor" />
+            <TableColumn editable="false" prefWidth="202.0" resizable="false" text="Permanencia" />
         </columns>
       </TableView>
    </children>

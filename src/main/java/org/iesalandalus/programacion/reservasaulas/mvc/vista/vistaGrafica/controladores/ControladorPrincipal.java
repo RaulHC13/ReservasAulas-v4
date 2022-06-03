@@ -186,11 +186,17 @@ public class ControladorPrincipal {
 			AnchorPane raiz = loader.load();
 			controllerListarAula = loader.getController();
 			controllerListarAula.setControladorPrincipal(controladorPrincipal);
+			controllerListarAula.inicializar();
+			controllerListarAula.cargarListadoAulas();
 			
 			Scene scene = new Scene(raiz,500,400);
 			listarAulaStage.setTitle("Listar aulas");
 			listarAulaStage.initModality(Modality.APPLICATION_MODAL);
 			listarAulaStage.setScene(scene);
+		}
+		else {
+			controllerListarAula.inicializar();
+			controllerListarAula.cargarListadoAulas();
 		}
 	}
 	
