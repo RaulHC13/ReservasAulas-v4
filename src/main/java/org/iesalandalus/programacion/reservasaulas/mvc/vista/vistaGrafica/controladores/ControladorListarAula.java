@@ -47,7 +47,7 @@ public class ControladorListarAula {
 		  indexOf para seleccionar solo la parte que interesa insertar en la substring, 
 		  en este caso para nombre, indexOf empieza en "= " que es lo que va antes del valor nombre,
 		  se le suma 1 para que no incluya el "= " y como segundo parametro de substring se añade donde acaba la
-		  string, en este caso en "P" que es donde empieza "Puestos"
+		  string, en este caso en "Pues" que es donde empieza "Puestos"
 		  
 		  Para la columna TCPuestos se empieza por "]" que es el final y se le resta 3 para que incluya 
 		  los 2 numeros de puestos, acaba en "]".

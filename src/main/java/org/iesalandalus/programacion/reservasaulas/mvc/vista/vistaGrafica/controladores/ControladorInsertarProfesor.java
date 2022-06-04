@@ -95,7 +95,7 @@ public class ControladorInsertarProfesor {
 		}
 	}
 	
-	private String formateaNombre(String nombre) {
+	private String formateaNombre(String nombre) {//Metodo para formatear nombre.
 		
 		char[] caracter = nombre.toCharArray(); //Se crea un array a partir de la string nombre
 		caracter[0] = Character.toUpperCase(caracter[0]); //Se convierte la primera letra a mayuscula

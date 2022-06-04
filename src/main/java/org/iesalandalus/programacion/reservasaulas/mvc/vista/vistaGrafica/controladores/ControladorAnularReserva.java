@@ -28,8 +28,12 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class ControladorAnularReserva {
+	
+	/*Lo mismo que en realizar reservas excepto que no utiliza el correo de profesor.
+	  la unica diferencia es el metodo anularReserva() que toma una reserva de getReserva()
+	  y la anula.*/
 		
-	@FXML private TextField TFCorreo, TFNombre, TFHora;
+	@FXML private TextField TFNombre, TFHora;
 	@FXML private DatePicker DPPermanencia;
 	@FXML private Button BTRealizar;
 	@FXML private RadioButton RBTramo, RBHora;

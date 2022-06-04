@@ -97,7 +97,6 @@ public class ControladorConsultarDisponibilidad {
 			}
 		} catch (Exception e) {
 			Dialogos.mostrarDialogoError("ERROR", "ERROR: La reserva no existe.");
-			e.printStackTrace();
 		}
 	}
 	

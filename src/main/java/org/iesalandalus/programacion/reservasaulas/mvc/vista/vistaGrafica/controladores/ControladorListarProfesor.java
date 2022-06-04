@@ -32,7 +32,7 @@ public class ControladorListarProfesor{
 	public void inicializar() {
 		ObservableList<String> obsProfesores = FXCollections.observableArrayList(controladorPrincipal.representarProfesores());
 		tvProfesores.setItems(obsProfesores);
-	}
+	} //Mismo proceso que en ListarAula
 	
 	public void cargarListadoProfesores() {
 		nombreColumn.setCellValueFactory(nombre -> new SimpleStringProperty

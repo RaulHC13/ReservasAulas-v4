@@ -31,7 +31,7 @@ public class ControladorEliminarAula {
 	
 	public void inicializar() {
 		TFNombre.setText("");
-	}	
+	}	//Se inicializa para que al abrir y cerrar la ventana no se queden los datos en el text field
 	
 	private String getNombre() {
 		

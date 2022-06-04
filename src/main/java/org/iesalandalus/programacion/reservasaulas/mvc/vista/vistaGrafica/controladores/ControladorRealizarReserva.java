@@ -70,9 +70,9 @@ public class ControladorRealizarReserva {
 	@FXML
 	private void seleccionPermanencia(ActionEvent evento) {
 		RadioButton RB = (RadioButton)evento.getSource();
-		
-		if (RB == RBTramo) {
-			CBTramo.setDisable(false);
+		//Dependiendo del boton radial que se pulse, se activa la parte de permanencia pertinente:
+		if (RB == RBTramo) { 		  //Si se tiene pulsado el boton de tramo, activa el ComboBox para elegir y ademas
+			CBTramo.setDisable(false);//desactiva lo relaccionado con permanencia hora.
 			TFHora.setDisable(true);
 			TFHora.setText("");
 		}
@@ -141,7 +141,7 @@ public class ControladorRealizarReserva {
 	
 	private LocalTime getHora() {
 		LocalTime hora = null;
-		try {
+		try {//Convierte la string en un LocalTime y le pasa un formateador.
 			hora = LocalTime.parse(TFHora.getText(), formatoHora);
 		} catch (DateTimeException e) {
 			
@@ -149,8 +149,8 @@ public class ControladorRealizarReserva {
 		return hora;
 	}
 	
-	private boolean horaValida() {
-		boolean bool = false;
+	private boolean horaValida() {//Metodo para comprobar que la hora introducida es mayor que la hora
+		boolean bool = false;     //de apertura y menor que la hora de cierre.
 		LocalTime hora = getHora();
 		try {
 			
@@ -172,7 +172,7 @@ public class ControladorRealizarReserva {
 		Tramo tramo = null;
 		LocalTime hora = null;
 		Permanencia permanencia = null;
-		
+		//Una gran cantidad de comprobaciones para que no haya ningún tipo de error en el programa.
 		if (TFNombre.getText() == null || TFNombre.getText().isBlank()) {
 			Dialogos.mostrarDialogoAdvertencia("AVISO", "No se ha introducido ningún nombre.");
 		} else {
@@ -217,7 +217,8 @@ public class ControladorRealizarReserva {
 		} else if (RBHora.isSelected() && (!TFHora.getText().isEmpty() && TFHora.getText() != null && hora != null)) {
 			permanencia = new PermanenciaPorHora(fecha, hora);
 		}
-		
+		/*Si pasa todas las comprobaciones crea una nueva reserva que se va a insertar pero si
+		  no las pasa el metodo realizarReserva() lanzará un mensaje de error y no la insertará.*/
 		if (aula != null && profesor != null && permanencia != null) {
 			try {
 			reserva = new Reserva(profesor, aula, permanencia);
