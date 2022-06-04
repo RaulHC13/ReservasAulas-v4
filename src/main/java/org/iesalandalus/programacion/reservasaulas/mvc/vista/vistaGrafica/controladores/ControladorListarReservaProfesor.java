@@ -25,7 +25,7 @@ public class ControladorListarReservaProfesor {
 	@FXML private TextField TFCorreo;
 	@FXML private Button BTListar;
 	
-	private ObservableList<Reserva> obsReservasAula = FXCollections.observableArrayList();
+	private ObservableList<Reserva> obsReservasProfesor = FXCollections.observableArrayList();
 	private DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 	private static final String ER_CORREO = "[a-zñÑA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zñÑA-Z0-9](?:[a-zñÑA-Z0-9-]{0,61}[a-zñÑA-Z0-9])?(?:\\.[a-zñÑA-Z0-9](?:[a-zñÑA-Z0-9-]{0,61}[a-zñÑA-Z0-9])?)";
 
@@ -74,8 +74,8 @@ public class ControladorListarReservaProfesor {
 		  al inicializar ya que hay que saber el nombre primero*/
 		
 		try {
-		obsReservasAula = FXCollections.observableArrayList(controladorPrincipal.getReservasProfesor(getCorreo()));
-		TVListarReservas.setItems(obsReservasAula);
+		obsReservasProfesor = FXCollections.observableArrayList(controladorPrincipal.getReservasProfesor(getCorreo()));
+		TVListarReservas.setItems(obsReservasProfesor);
 		} catch (NullPointerException e) {
 		}
 		
@@ -96,7 +96,7 @@ public class ControladorListarReservaProfesor {
 		TCProfesor.setCellValueFactory(correo -> new SimpleStringProperty(
 				(correo.getValue().getProfesor().getCorreo())));
 		
-		if (obsReservasAula.isEmpty() && !TFCorreo.getText().isBlank() && TFCorreo.getText().matches(ER_CORREO) ) {
+		if (obsReservasProfesor.isEmpty() && !TFCorreo.getText().isBlank() && TFCorreo.getText().matches(ER_CORREO) ) {
 			Dialogos.mostrarDialogoInformacion(null, "No existen reservas para este profesor.");
 			/*Si se ha introducido un correo pero no existen reservas para ese profesor y 
 			  es un correo valido (coincide con ER_CORREO), devuelve este mensaje
