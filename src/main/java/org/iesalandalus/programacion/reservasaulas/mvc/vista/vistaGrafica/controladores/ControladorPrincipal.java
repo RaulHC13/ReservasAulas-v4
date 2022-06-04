@@ -207,11 +207,14 @@ public class ControladorPrincipal {
 			AnchorPane raiz = loader.load();
 			controllerConsultarDisponibilidad = loader.getController();
 			controllerConsultarDisponibilidad.setControladorPrincipal(controladorPrincipal);
+			controllerConsultarDisponibilidad.inicializar();
 			
 			Scene scene = new Scene(raiz,500,400);
 			consultarDisponibilidadStage.setTitle("Consultar disponibilidad");
 			consultarDisponibilidadStage.initModality(Modality.APPLICATION_MODAL);
 			consultarDisponibilidadStage.setScene(scene);
+		} else {
+			controllerConsultarDisponibilidad.inicializar();
 		}
 	}
 	
