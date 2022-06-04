@@ -38,22 +38,18 @@
             <Font name="Cambria Bold" size="14.0" />
          </font>
       </Label>
-      <DatePicker id="DPPermanencia" fx:id="DPPermanencia" layoutX="282.0" layoutY="148.0" />
+      <DatePicker id="DPPermanencia" fx:id="DPPermanencia" editable="false" layoutX="282.0" layoutY="148.0" />
       <Label layoutX="45.0" layoutY="191.0" text="Tipo de permanencia">
          <font>
             <Font name="Cambria Bold" size="16.0" />
          </font>
       </Label>
-      <RadioButton fx:id="RBTramo" layoutX="71.0" layoutY="218.0" mnemonicParsing="false" text="Por tramo">
+      <RadioButton fx:id="RBTramo" layoutX="71.0" layoutY="218.0" mnemonicParsing="false" onAction="#seleccionPermanencia" text="Por tramo">
          <toggleGroup>
             <ToggleGroup fx:id="tipoTramo" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton fx:id="RBHora" layoutX="73.0" layoutY="247.0" mnemonicParsing="false" text="Por hora">
-         <toggleGroup>
-            <ToggleGroup fx:id="tipoTramo1" />
-         </toggleGroup>
-      </RadioButton>
+      <RadioButton fx:id="RBHora" layoutX="73.0" layoutY="247.0" mnemonicParsing="false" onAction="#seleccionPermanencia" text="Por hora" toggleGroup="$tipoTramo" />
       <ComboBox fx:id="CBTramo" disable="true" layoutX="33.0" layoutY="277.0" prefWidth="150.0" />
       <TextField fx:id="TFHora" layoutX="295.0" layoutY="252.0" />
       <Label layoutX="321.0" layoutY="217.0" text="Hora reserva">

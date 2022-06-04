@@ -58,7 +58,7 @@ public class ControladorListarAula {
 		
 		TCNombre.setCellValueFactory(nombre -> new SimpleStringProperty
 				(nombre.getValue().substring(nombre.getValue().indexOf("= ") + 1, //Donde empieza
-				nombre.getValue().indexOf("P")))); //Donde acaba
+				nombre.getValue().indexOf("Pues")))); //Donde acaba
 		
 		TCPuestos.setCellValueFactory(puestos -> new SimpleStringProperty
 				(puestos.getValue().substring(puestos.getValue().indexOf("]") -3, 

@@ -296,11 +296,15 @@ public class ControladorPrincipal {
 				AnchorPane raiz = loader.load();
 				controllerAnularReserva = loader.getController();
 				controllerAnularReserva.setControladorPrincipal(controladorPrincipal);
+				controllerAnularReserva.inicializar();
 				
 				Scene scene = new Scene(raiz,500,400);
 				anularReservaStage.setTitle("Anular reserva");
 				anularReservaStage.initModality(Modality.APPLICATION_MODAL);
 				anularReservaStage.setScene(scene);
+			}
+			else {
+				controllerAnularReserva.inicializar();
 			}
 	}
 		private void crearVentanaListarReserva() throws IOException {
