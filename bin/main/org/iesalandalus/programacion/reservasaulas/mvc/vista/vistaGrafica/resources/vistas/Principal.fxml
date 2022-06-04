@@ -89,7 +89,7 @@
             </Button>
          </children>
       </StackPane>
-      <StackPane id="StackPaneProfesores" layoutX="421.0" layoutY="130.0" prefHeight="150.0" prefWidth="200.0" style="-fx-border-color: red; -fx-border-width: 6px;">
+      <StackPane id="StackPaneProfesores" layoutX="421.0" layoutY="130.0" prefHeight="150.0" prefWidth="200.0" style="-fx-border-color: red; -fx-border-width: 6px; -fx-border-radius: 6px;">
          <children>
             <ImageView id="fondo_profesores" fitHeight="219.0" fitWidth="325.0">
                <image>

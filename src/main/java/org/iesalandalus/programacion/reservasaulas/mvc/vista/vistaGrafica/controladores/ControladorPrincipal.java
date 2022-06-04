@@ -12,6 +12,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.image.Image;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.AnchorPane;
@@ -154,6 +155,7 @@ public class ControladorPrincipal {
 			insertarAulaStage.setTitle("Insertar aulas");
 			insertarAulaStage.initModality(Modality.APPLICATION_MODAL);
 			insertarAulaStage.setScene(scene);
+			insertarAulaStage.getIcons().add(new Image(LocalizadorRecursos.class.getResourceAsStream("imagenes/icono.png")));
 		} else {
 			controllerInsertarAula.inicializar();
 		} /*Se inicializa si el escenario no es nulo para que al volver a abrir tras cerrar 
@@ -173,6 +175,8 @@ public class ControladorPrincipal {
 			eliminarAulaStage.setTitle("Eliminar aulas");
 			eliminarAulaStage.initModality(Modality.APPLICATION_MODAL);
 			eliminarAulaStage.setScene(scene2);
+			eliminarAulaStage.getIcons().add(new Image(LocalizadorRecursos.class.getResourceAsStream("imagenes/icono.png")));
+
 		}
 		else {
 			controllerEliminarAula.inicializar();
@@ -193,6 +197,8 @@ public class ControladorPrincipal {
 			listarAulaStage.setTitle("Listar aulas");
 			listarAulaStage.initModality(Modality.APPLICATION_MODAL);
 			listarAulaStage.setScene(scene);
+			listarAulaStage.getIcons().add(new Image(LocalizadorRecursos.class.getResourceAsStream("imagenes/icono.png")));
+
 		}
 		else {
 			controllerListarAula.inicializar();
@@ -213,6 +219,8 @@ public class ControladorPrincipal {
 			consultarDisponibilidadStage.setTitle("Consultar disponibilidad");
 			consultarDisponibilidadStage.initModality(Modality.APPLICATION_MODAL);
 			consultarDisponibilidadStage.setScene(scene);
+			consultarDisponibilidadStage.getIcons().add(new Image(LocalizadorRecursos.class.getResourceAsStream("imagenes/icono.png")));
+
 		} else {
 			controllerConsultarDisponibilidad.inicializar();
 		}
@@ -231,6 +239,8 @@ public class ControladorPrincipal {
 			insertarProfesorStage.setTitle("Insertar profesor");
 			insertarProfesorStage.initModality(Modality.APPLICATION_MODAL);
 			insertarProfesorStage.setScene(scene);
+			insertarProfesorStage.getIcons().add(new Image(LocalizadorRecursos.class.getResourceAsStream("imagenes/icono.png")));
+
 		} else {
 			controllerInsertarProfesor.inicializar();
 		}
@@ -250,6 +260,8 @@ public class ControladorPrincipal {
 			eliminarProfesorStage.setTitle("Eliminar profesor");
 			eliminarProfesorStage.initModality(Modality.APPLICATION_MODAL);
 			eliminarProfesorStage.setScene(scene);
+			eliminarProfesorStage.getIcons().add(new Image(LocalizadorRecursos.class.getResourceAsStream("imagenes/icono.png")));
+
 		}
 		else {
 			controllerEliminarProfesor.inicializar();
@@ -269,6 +281,8 @@ public class ControladorPrincipal {
 				listarProfesorStage.setTitle("Listar profesor");
 				listarProfesorStage.initModality(Modality.APPLICATION_MODAL);
 				listarProfesorStage.setScene(scene);
+				listarProfesorStage.getIcons().add(new Image(LocalizadorRecursos.class.getResourceAsStream("imagenes/icono.png")));
+
 			} else {
 				controllerListarProfesor.inicializar();
 				controllerListarProfesor.cargarListadoProfesores();
@@ -287,6 +301,8 @@ public class ControladorPrincipal {
 				realizarReservaStage.setTitle("Realizar reserva");
 				realizarReservaStage.initModality(Modality.APPLICATION_MODAL);
 				realizarReservaStage.setScene(scene);
+				realizarReservaStage.getIcons().add(new Image(LocalizadorRecursos.class.getResourceAsStream("imagenes/icono.png")));
+
 			}
 			else {
 				controllerRealizarReserva.inicializar();
@@ -305,6 +321,8 @@ public class ControladorPrincipal {
 				anularReservaStage.setTitle("Anular reserva");
 				anularReservaStage.initModality(Modality.APPLICATION_MODAL);
 				anularReservaStage.setScene(scene);
+				anularReservaStage.getIcons().add(new Image(LocalizadorRecursos.class.getResourceAsStream("imagenes/icono.png")));
+
 			}
 			else {
 				controllerAnularReserva.inicializar();
@@ -324,6 +342,8 @@ public class ControladorPrincipal {
 				listarReservaStage.setTitle("Listar reservas");
 				listarReservaStage.initModality(Modality.APPLICATION_MODAL);
 				listarReservaStage.setScene(scene);
+				listarReservaStage.getIcons().add(new Image(LocalizadorRecursos.class.getResourceAsStream("imagenes/icono.png")));
+
 			} else {
 				controllerListarReserva.inicializar();
 				controllerListarReserva.cargarListadoReservas();
@@ -342,6 +362,8 @@ public class ControladorPrincipal {
 				listarReservaAulaStage.setTitle("Listar reservas por aula");
 				listarReservaAulaStage.initModality(Modality.APPLICATION_MODAL);
 				listarReservaAulaStage.setScene(scene);
+				listarReservaAulaStage.getIcons().add(new Image(LocalizadorRecursos.class.getResourceAsStream("imagenes/icono.png")));
+
 			}
 			else {
 				controllerListarReservaAula.inicializar();
@@ -360,6 +382,8 @@ public class ControladorPrincipal {
 				listarReservaProfesorStage.setTitle("Listar reservas por profesor");
 				listarReservaProfesorStage.initModality(Modality.APPLICATION_MODAL);
 				listarReservaProfesorStage.setScene(scene);
+				listarReservaProfesorStage.getIcons().add(new Image(LocalizadorRecursos.class.getResourceAsStream("imagenes/icono.png")));
+
 			} else {
 				controllerListarReservaProfesor.inicializar();
 			}

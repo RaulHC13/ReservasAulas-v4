@@ -9,6 +9,7 @@ import org.iesalandalus.programacion.reservasaulas.mvc.vista.vistaGrafica.resour
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
@@ -30,6 +31,7 @@ public class VistaGrafica extends Application implements IVista{
 			escenarioPrincipal.setScene(escena);
 			escenarioPrincipal.setTitle("Ventana principal");
 			escenarioPrincipal.setOnCloseRequest(e -> confirmarSalida(escenarioPrincipal, e));
+			escenarioPrincipal.getIcons().add(new Image(LocalizadorRecursos.class.getResourceAsStream("imagenes/icono.png")));
 			escenarioPrincipal.show();
 			
 		} catch(Exception e) {
