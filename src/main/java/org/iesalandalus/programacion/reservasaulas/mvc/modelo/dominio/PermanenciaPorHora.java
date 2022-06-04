@@ -61,6 +61,6 @@ public class PermanenciaPorHora extends Permanencia {//Hereda de Permanencia
 	}
 	@Override
 	public String toString() {
-		return String.format("PermanenciaPorHora [Dia = %s, Hora = %s]", getDia().format(Permanencia.FORMATO_DIA), hora.format(FORMATO_HORA));
+		return String.format("PermanenciaPorHora [Dia = %s, Hora = %s  ]", getDia().format(Permanencia.FORMATO_DIA), hora.format(FORMATO_HORA));
 	}
 }

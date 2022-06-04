@@ -278,11 +278,15 @@ public class ControladorPrincipal {
 				AnchorPane raiz = loader.load();
 				controllerRealizarReserva = loader.getController();
 				controllerRealizarReserva.setControladorPrincipal(controladorPrincipal);
+				controllerRealizarReserva.inicializar();
 				
 				Scene scene = new Scene(raiz,500,400);
 				realizarReservaStage.setTitle("Realizar reserva");
 				realizarReservaStage.initModality(Modality.APPLICATION_MODAL);
 				realizarReservaStage.setScene(scene);
+			}
+			else {
+				controllerRealizarReserva.inicializar();
 			}
 	}
 		private void crearVentanaAnularReserva() throws IOException {
@@ -325,11 +329,15 @@ public class ControladorPrincipal {
 				AnchorPane raiz = loader.load();
 				controllerListarReservaAula = loader.getController();
 				controllerListarReservaAula.setControladorPrincipal(controladorPrincipal);
+				controllerListarReservaAula.inicializar();
 				
 				Scene scene = new Scene(raiz,500,400);
 				listarReservaAulaStage.setTitle("Listar reservas por aula");
 				listarReservaAulaStage.initModality(Modality.APPLICATION_MODAL);
 				listarReservaAulaStage.setScene(scene);
+			}
+			else {
+				controllerListarReservaAula.inicializar();
 			}
 	}
 		private void crearVentanaListarReservaProfesor() throws IOException {
@@ -339,11 +347,14 @@ public class ControladorPrincipal {
 				AnchorPane raiz = loader.load();
 				controllerListarReservaProfesor = loader.getController();
 				controllerListarReservaProfesor.setControladorPrincipal(controladorPrincipal);
+				controllerListarReservaProfesor.inicializar();
 				
 				Scene scene = new Scene(raiz,500,400);
 				listarReservaProfesorStage.setTitle("Listar reservas por profesor");
 				listarReservaProfesorStage.initModality(Modality.APPLICATION_MODAL);
 				listarReservaProfesorStage.setScene(scene);
+			} else {
+				controllerListarReservaProfesor.inicializar();
 			}
 	}
 	}

@@ -51,6 +51,6 @@ public class PermanenciaPorTramo extends Permanencia{//Hereda de Permanencia.
 	}
 	@Override
 	public String toString() {
-		return String.format("PermanenciaPorTramo [Dia = %s, Tramo= %s]", getDia().format(FORMATO_DIA), tramo);
+		return String.format("PermanenciaPorTramo [Dia = %s, Tramo= %s ]", getDia().format(FORMATO_DIA), tramo);
 	}
 }
